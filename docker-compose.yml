@@ -1,0 +1,18 @@
+version: '3'
+services:
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GOODUSER: abdelali
+        UID: 1000
+        MAIL: abdelali.ichou@univ-orleans.fr
+        NOM: "Abdelali Ichou"
+    container_name: ichou-container
+    volumes:
+    - ./dev:/var/www/html
+    ports:
+    - "5000:8000"
+    environment:
+      PHP_IDE_CONFIG: serverName=toto
